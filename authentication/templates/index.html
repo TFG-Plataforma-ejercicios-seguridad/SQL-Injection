@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection</title>
+</head>
+<body>
+    <h1>SQL Injection</h1>
+
+    <h2>¿Qué es el SQL Injection?</h2>
+    <p>El SQL Injection (SQLi) es una vulnerabilidad de seguridad común en aplicaciones web que permite a los atacantes ejecutar consultas SQL no deseadas en una base de datos.</p>
+
+    <h2>Objetivo del ejercicio</h2>
+    <p>El objetivo del ejercicio es modificar el sueldo del usuario con nombre de usuario tomcat. Para ello, tendrá que autenticarse en el sistema como administrador y tendrá que usar ataques de SQL injection para ello.</p>
+    <button><a href={% url 'login' %}> Iniciar Ejercicio </a></button>
+
+    <h2>Cómo prevenir el SQL Injection y el Bypass SQLi:</h2>
+    <ul>
+        <li>Utilizar consultas parametrizadas o consultas preparadas.</li>
+        <li>Implementar la sanitización de entradas de usuario.</li>
+        <li>Aplicar listas blancas de caracteres para validar la entrada del usuario.</li>
+        <li>Limitar los privilegios de la cuenta de base de datos utilizada por la aplicación.</li>
+    </ul>
+
+
+</body>
+</html>

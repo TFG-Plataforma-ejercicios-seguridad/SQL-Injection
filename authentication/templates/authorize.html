@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection</title>
+</head>
+<body>
+    <h1>Introduzca codigo de verificacion</h1>
+    <form method="post" action={% url "auth" %}>
+        {% csrf_token %}
+        <input type="text" name="code">
+        <button type="submit">Autorizar</button>
+    </form>
+    
+    {%if method == 'POST' and data_modified %}
+        <pre>{{flag}}</pre>
+    {% elif not data_modified%}
+        <p>Has autorizado los cambios mediante la siguiente flag: {{ctf}}</p>
+    {%endif%}
+
+</body>
+</html>

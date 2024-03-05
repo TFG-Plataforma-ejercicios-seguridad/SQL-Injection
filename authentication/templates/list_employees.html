@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Injection</title>
+</head>
+
+<body>
+    <h1>Listado de empleados</h1>
+    <form method="get" action={% url "adminprofile" %}>
+        <input type="text" name="name">
+        <button type="submit">Buscar empleado</button>
+    </form>
+
+    {%if query %}
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Departamento</th>
+            <th>Salario</th>
+        </tr>
+        {%for user in query%}
+        <tr>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.business_department}}</td>
+            <td>{{user.salary}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    {%endif%}
+    {%if data_modified%}
+        <p>Se han detectado cambios no autorizados en la base de datos. Por favor, introduzca el codigo de verificacion si dichos cambios han sido consentidos</p>
+        <a href={% url "auth" %}><button></button></a>
+    {%endif%}
+
+</body>
+</html>
