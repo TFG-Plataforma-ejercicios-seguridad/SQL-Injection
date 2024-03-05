@@ -17,10 +17,10 @@ WORKDIR /app
 RUN git clone https://github.com/TFG-Plataforma-ejercicios-seguridad/SQL-Injection.git .
 RUN pip install -r requirements.txt
 
-WORKDIR /app/ejercicio
+WORKDIR /app/ejercicioSQL
 
-COPY docker-settings.py /app/ejercicio/local_settings.py
+COPY docker-settings.py /app/ejercicioSQL/local_settings.py
 
+RUN ./manage.py collectstatic
 
-
-CMD ["gunicorn", "-w 5", "ejercicioSQL.wsgi", "--timeout=500", "-b 0.0.0.0:5000"]
+#CMD ["gunicorn", "-w 5", "ejercicioSQL.wsgi", "--timeout=500", "-b 0.0.0.0:5000"]
