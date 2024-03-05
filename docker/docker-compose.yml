@@ -17,13 +17,12 @@ services:
   web:
     restart: always
     container_name: sqli_web
+    working_dir: /app
     image: sqli_web:latest
     build: .
     command: ash -c "python manage.py makemigrations && python manage.py migrate && python manage.py loaddata ./db.json && gunicorn -w 5 sqli.wsgi --timeout=500 -b 0.0.0.0:5000"
     expose:
       - "5000"
-    volumes:
-      - static:/app/static
     depends_on:
       - db
     networks:
@@ -35,8 +34,6 @@ services:
     build:
         context: .
         dockerfile: Dockerfile-nginx
-    volumes:
-      - static:/app/static
     ports:
       - "8000:80"
     depends_on:
@@ -45,8 +42,6 @@ services:
       - sqli
 
 volumes:
-  static:
-    name: sqli_static
   db:
     name: sqli_db
 

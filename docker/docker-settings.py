@@ -8,7 +8,7 @@ DATABASES = {
         'NAME': 'postgres_injection',
         'USER': 'postgres_injection',
         'PASSWORD': 'postgres_injection',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 5432,
     }
 }
@@ -17,5 +17,5 @@ DATABASES = {
 BASEURL = 'http://10.5.0.1:8000'
 
 APIS = {
-    'store': 'http://10.5.0.1:8000',
+    'authentication': 'http://10.5.0.1:8000',
 }
