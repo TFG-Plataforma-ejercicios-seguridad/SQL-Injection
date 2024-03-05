@@ -20,4 +20,6 @@ RUN pip install -r requirements.txt
 WORKDIR /app/b00k
 
 
+
+
 #CMD ["gunicorn", "-w 5", "b00k.wsgi", "--timeout=500", "-b 0.0.0.0:5000"]
