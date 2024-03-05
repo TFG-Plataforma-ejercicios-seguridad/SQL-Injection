@@ -17,7 +17,7 @@ WORKDIR /app
 RUN git clone https://github.com/TFG-Plataforma-ejercicios-seguridad/SQL-Injection.git .
 RUN pip install -r requirements.txt
 
-WORKDIR /app/b00k
+WORKDIR /app/ejercicio
 
 
 
