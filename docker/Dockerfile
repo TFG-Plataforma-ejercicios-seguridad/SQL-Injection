@@ -19,7 +19,8 @@ RUN pip install -r requirements.txt
 
 WORKDIR /app/ejercicio
 
-ADD docker-settings.py /app/ejercicio/local_settings.py
+COPY docker-settings.py /app/ejercicio/local_settings.py
 
 
-#CMD ["gunicorn", "-w 5", "b00k.wsgi", "--timeout=500", "-b 0.0.0.0:5000"]
+
+CMD ["gunicorn", "-w 5", "ejercicioSQL.wsgi", "--timeout=500", "-b 0.0.0.0:5000"]
